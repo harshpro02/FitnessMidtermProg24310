@@ -22,17 +22,31 @@ int main(void) {
         {90, 88, 86, 84, 82},
         {94, 92, 90, 88, 86}
     };
-    int achievement = 0;
+    int achievedCount = 0;
+    double highestAverage = 0;
+    int highestIndex = 0;
+    double lowestAverage = calculateAverage(monthlyRates[0], 5);
+    int lowestIndex = 0;
     for (int i = 0; i < 10; i++ ) {
         double average = calculateAverage(monthlyRates[0], 5);
+        if (average > highestAverage) {
+            highestAverage = average;
+            highestIndex = i;
+        }
+        if (average < lowestAverage) {
+            lowestAverage = average;
+            lowestIndex = i;
+        }
 
         printf("Participant: %\n", codes[i]);
         printf("Average Heart Rate: %.2f BPM\n", average);
+        printf("\nTotal Participants: 10\n");
 
         double target = initialRates[i] * 0.90;
 
         if (average <= target) {
             printf("Status : Achieved Reduction\n*");
+            achievedCount++;
         }
         else {
             printf("Status : Not Achieved\n*");
@@ -42,6 +56,11 @@ int main(void) {
     }
 
 
-    }
+    printf("\nHighest Average Heart Rate:\n");
+    printf("Participant: %\n", codes[highestIndex]);
+    printf("Average Heart Rate: %.2f BPM\n", highestAverage);
+    printf("\nLowest Average Heart Rate:\n");
+    printf("Participant: %\n", codes[lowestIndex]);
+    printf("Average Heart Rate: %.2f BPM\n", lowestAverage);
     return 0;
 }
