@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "analysisFunctions.h"
 
 int main(void) {
 
@@ -23,6 +24,8 @@ int main(void) {
         {94, 92, 90, 88, 86}
     };
 
-
+    double average = calculateAverage(monthlyRates[0], 5);
+    printf("Participant: %\n", codes[0]);
+    printf("Average Heart Rate: %.2f BPM\n", average);
     return 0;
 }
