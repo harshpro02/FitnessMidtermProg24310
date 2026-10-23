@@ -13,5 +13,5 @@ double calculateAverage(const int rates[], int count) {
     for (int i = 0; i < count; i++) {
         sum += rates[i];
     }
-    return double(sum) / (count);
+    return (double)sum / count;
 }
