@@ -23,9 +23,11 @@ int main(void) {
         {90, 88, 86, 84, 82},
         {94, 92, 90, 88, 86}
     };
+    for (int i = 0; i < 10; i++ ) {
+        double average = calculateAverage(monthlyRates[0], 5);
 
-    double average = calculateAverage(monthlyRates[0], 5);
-    printf("Participant: %\n", codes[0]);
-    printf("Average Heart Rate: %.2f BPM\n", average);
+        printf("Participant: %\n", codes[i]);
+        printf("Average Heart Rate: %.2f BPM\n", average);
+    }
     return 0;
 }
