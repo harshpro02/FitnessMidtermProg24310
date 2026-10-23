@@ -2,7 +2,6 @@
 #include "analysisFunctions.h"
 
 int main(void) {
-
     // Patient codes
     char* codes [] = {  "P104", "P208", "P315", "P421", "P537",
         "P642", "P756", "P863", "P974", "P109" };
@@ -23,11 +22,26 @@ int main(void) {
         {90, 88, 86, 84, 82},
         {94, 92, 90, 88, 86}
     };
+    int achievement = 0;
     for (int i = 0; i < 10; i++ ) {
         double average = calculateAverage(monthlyRates[0], 5);
 
         printf("Participant: %\n", codes[i]);
         printf("Average Heart Rate: %.2f BPM\n", average);
+
+        double target = initialRates[i] * 0.90;
+
+        if (average <= target) {
+            printf("Status : Achieved Reduction\n*");
+        }
+        else {
+            printf("Status : Not Achieved\n*");
+        }
+        printf("\n*");
+
+    }
+
+
     }
     return 0;
 }
